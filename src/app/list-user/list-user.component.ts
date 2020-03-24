@@ -20,13 +20,17 @@ export class ListUserComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    
+    this.users = this.userService.getUsers() as User[];
   }
 
+  
+
   remove(id:number){
-      this.users = this.users.filter((user) => {
-          if(user.id != id) return user;
-      });
+    this.userService.removeUser(id);
+    this.ngOnInit();
+      // this.users = this.users.filter((user) => {
+      //     if(user.id != id) return user;
+      // });
   }
   editUser(id:number){
     let user = this.userService.getUser(id);

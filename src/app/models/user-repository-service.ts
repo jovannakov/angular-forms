@@ -57,4 +57,10 @@ export class UserService {
                 return user;
           });
       }
+
+      removeUser(id:number){
+        this.users = this.users.filter((user) => {
+              if(user.id != id) return user;
+          });
+      }
 }
