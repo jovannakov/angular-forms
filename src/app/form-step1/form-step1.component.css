@@ -1,0 +1,18 @@
+.form-control{
+    border: 1px solid black;
+    box-shadow: 1px 1px 1px 1px;
+    border-radius: 4px;
+}
+.form-group{
+    margin: 3px;
+    padding: 3px;
+}
+
+input[type=text]{
+    padding: 5px;
+}
+
+label {
+    padding: 0 7px 7px 0;
+    display: inline-block;
+  }

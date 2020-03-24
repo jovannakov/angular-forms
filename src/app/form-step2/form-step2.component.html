@@ -1,0 +1,42 @@
+<h3>Movies: </h3>
+
+    <form [formGroup]="moviesForm"> 
+        <ul class="nav">
+            <li class="ml-2 mb-1">
+                <button (click)="goBackToStep1()" class="btn btn-outline-danger btn-block">Go back to step1</button>
+            </li>
+            <li class="ml-2 mb-1">
+                <button (click)="addMovieFiled()" class="btn btn-outline-success btn-block">Add movie</button>
+            </li>
+            <li class="ml-2 mb-1">
+                <button (click)="completeForm()" class="btn btn-outline-primary btn-block">Complete form</button>
+            </li>
+        </ul>
+        
+    
+            <div formArrayName="movies" *ngFor="let movie of movies.controls; let index = index; let last = last;">
+                <div [formGroupName]="index">
+                    
+                    <!-- <span style="color:red;" *ngIf="!moviesForm.get('Name').valid && moviesForm.get('Name').dirty">
+                        This input is invalid!
+                    </span> -->
+                    <ul class="nav">
+                        <li class="ml-2 mb-1">
+                            <input type="text" placeholder="Movie" class="input-form" formControlName="Name">
+                        </li>
+                        <li class="ml-2 mb-1">
+                            <input type="text" placeholder="Url" class="input-form"  formControlName="Image">
+                        </li>
+                        <li class="ml-2 mb-1">
+                            <button (click)="removeMovie(index)" class="btn btn-danger" >Remove</button>
+                        </li>
+                        <li class="ml-2 mb-1">
+                            <span style="color:red;" *ngIf="!moviesForm.get('movies').get('Name').valid">
+                                This input is invalid!
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </form>
+

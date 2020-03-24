@@ -1,0 +1,35 @@
+<a href="#" routerLink='/home'>Go back to homepage</a>
+<form [formGroup]="editForm">
+
+    <div class="form-group">
+        <label>
+            First Name:
+            <input type="text" class="form-control" formControlName="firstName">
+            <span style="color:red;" *ngIf="!editForm.get('firstName').valid && editForm.get('firstName').dirty">
+                This input is invalid!
+            </span>
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>
+            Last Name:
+            <input type="text" class="form-control" formControlName="lastName">
+            <span style="color:red;" *ngIf="!editForm.get('lastName').valid && editForm.get('lastName').dirty">
+                This input is invalid!
+            </span>
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+            Zip code:
+            <input type="text" class="form-control" ng-keypress="zipValidate()" formControlName="zip"><span>{{userCity}}</span>
+            <span style="color:red;" *ngIf="!editForm.get('zip').valid && editForm.get('zip').dirty">
+                This input is invalid!
+            </span>
+        </label>
+    </div>
+    <div class="form-group">
+        <button (click)="submitClick()" type="submit" class="btn btn-outline-dark">Step 2</button>
+    </div>
+</form>

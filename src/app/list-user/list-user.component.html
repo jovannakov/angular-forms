@@ -1,0 +1,21 @@
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Zip code</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.zipCode}}</td>
+                <td>
+                    <button (click)="remove(user.id)" class="btn btn-outline-danger mr-1">Delete</button>
+                    <button (click)="editUser(user.id)" routerLink="/step1" class="btn btn-outline-success">Edit</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
