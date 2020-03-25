@@ -1,4 +1,4 @@
-<a href="#" routerLink='/home'>Go back to homepage</a>
+<button (click)="GoBackToHome()" > Go back to homepage</button>
 <form [formGroup]="editForm">
 
     <div class="form-group">
@@ -23,11 +23,12 @@
     <div class="form-group">
         <label>
             Zip code:
-            <input type="text" class="form-control" ng-keypress="zipValidate()" formControlName="zip"><span>{{userCity}}</span>
-            <span style="color:red;" *ngIf="!editForm.get('zip').valid && editForm.get('zip').dirty">
-                This input is invalid!
-            </span>
+            <input type="text" class="form-control" formControlName="zip">
+            <span style="font-weight: bolder;" *ngIf="userCity.validZip">{{userCity.city}}</span>
         </label>
+        <span style="color:red;" *ngIf="!userCity.validZip">
+            <span>{{userCity.city}}</span>
+        </span>
     </div>
     <div class="form-group">
         <button (click)="submitClick()" type="submit" class="btn btn-outline-dark">Step 2</button>
