@@ -22,15 +22,10 @@ export class FormStep2Component implements OnInit {
    }
 
   ngOnInit(): void {
-    
-
     this.moviesForm = this.formBuilder.group({
       'movies':this.formBuilder.group({})
     });
-
-
     this.moviesForm.setControl('movies', this.setMovies(this.user.movies));
-    console.log(this.user.movies);
   }
 
   get movies(){
@@ -57,27 +52,33 @@ export class FormStep2Component implements OnInit {
   }
 
   removeMovie(index){
+    debugger;
     this.movies.removeAt(index);
   }
 
 
   goBackToStep1(){
-    this.saveData();
-    this.router.navigateByUrl("/step1");
+    if(this.saveData()){
+      this.router.navigateByUrl("/step1");
+    }
   }
 
   completeForm(){
-    this.saveData();
-    this.router.navigateByUrl("/home");
+    if(this.saveData()){
+      this.router.navigateByUrl("/home");
+    }
   }
 
   saveData(){
+    // returns true if all the required fields are entered
+    // and false if one or more required fields are missing
     let iterativeMovies = this.moviesForm.getRawValue().movies;
+    let isFormValid = true;
+    iterativeMovies.forEach(movie => {
+      if(movie.Name === "") isFormValid = false;
+    });
     this.transfer.setMovies(iterativeMovies);
-    // for(let i = 0; i < iterativeMovies.length; i++){
-    //   console.log(iterativeMovies[i] as Movie);
-    //   this.transfer.addMovie(iterativeMovies[i] as Movie);
-    // }
+    return isFormValid;
   }
 
 }
