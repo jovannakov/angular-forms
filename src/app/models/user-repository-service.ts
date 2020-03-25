@@ -11,7 +11,7 @@ export class UserService {
           id: 1, 
           firstName: "Jovan",
           lastName : "Nakov",
-          zipCode : 2300,
+          zipCode : 2333,
           movies : []
         },
         { 
@@ -32,7 +32,7 @@ export class UserService {
           id: 4,
           firstName: "Petre",
           lastName : "Petrov",
-          zipCode : 2300,
+          zipCode : 2304,
           movies : []
         }
       ]

@@ -22,7 +22,7 @@ export class ListUserComponent implements OnInit {
   ngOnInit(): void {
     this.users = this.userService.getUsers() as User[];
   }
-
+ 
   remove(id:number){
     this.userService.removeUser(id);
     this.ngOnInit();
